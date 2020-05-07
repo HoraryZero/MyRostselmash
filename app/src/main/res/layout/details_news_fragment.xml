@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="8dp"
+    tools:context=".details.DetailsNewsFragment">
+
+  <TextView
+      android:id="@+id/det_title"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      tools:text="Ростсельмаш расширяет условия популярной акции" />
+
+  <ImageView
+      android:id="@+id/det_main_photo"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="8dp"
+      android:maxHeight="214dp"
+      android:scaleType="centerCrop"
+      tools:src="@drawable/ic_launcher_background" />
+
+  <TextView
+      android:id="@+id/det_description"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="8dp"
+      tools:text="Месяц назад компания Ростсельмаш объявила об акции для
+      сельхозтоваропроизводителей – клиентов Росагролизинга. Пакетная покупка трактора
+      RSM из 2000-й или 3000-й серии и зерноуборочного комбайна  моделей TORUM или RSM
+      161 позволяет экономить от 500 до 700 тысяч рублей на каждой машине. Финансовая
+      программа заинтересовала аграриев. «Наши клиенты оценили предложение повышенным
+      спросом."/>
+
+</LinearLayout>
