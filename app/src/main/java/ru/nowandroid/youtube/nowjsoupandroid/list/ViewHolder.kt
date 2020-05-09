@@ -1,6 +1,6 @@
 package ru.nowandroid.youtube.nowjsoupandroid.list
 
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
@@ -9,7 +9,7 @@ import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item.view.*
 import ru.nowandroid.youtube.nowjsoupandroid.CropSquareTransformation
 
-class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+class ViewHolder(itemView: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView) {
 
     private val title: TextView = itemView.row_tv_title
     private val description: TextView = itemView.row_tv_description

@@ -1,8 +1,8 @@
 package ru.nowandroid.youtube.nowjsoupandroid.details
 
-import android.arch.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
-import android.support.v4.app.Fragment
+import androidx.fragment.app.Fragment
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -18,7 +18,7 @@ import ru.nowandroid.youtube.nowjsoupandroid.R
 import java.io.IOException
 import kotlin.coroutines.CoroutineContext
 
-class DetailsNewsFragment : Fragment(), CoroutineScope {
+class DetailsNewsFragment : androidx.fragment.app.Fragment(), CoroutineScope {
 
   private var job = Job()
   override val coroutineContext: CoroutineContext = Dispatchers.Main + job

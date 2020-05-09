@@ -1,9 +1,9 @@
 package ru.nowandroid.youtube.nowjsoupandroid.list
 
-import android.arch.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.support.v7.widget.LinearLayoutManager
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -16,7 +16,7 @@ import org.jsoup.Jsoup
 import ru.nowandroid.youtube.nowjsoupandroid.R
 import java.io.IOException
 
-class ListNewsFragment : Fragment() {
+class ListNewsFragment : androidx.fragment.app.Fragment() {
 
     private val url = "https://rostselmash.com/company/press/news/"
     private val listNews = mutableListOf<News>()
@@ -41,7 +41,7 @@ class ListNewsFragment : Fragment() {
         // TODO: Use the ViewModel
 
         adapter = DataAdapter()
-        val llm = LinearLayoutManager(this.context)
+        val llm = androidx.recyclerview.widget.LinearLayoutManager(this.context)
         rv.layoutManager = llm
         rv.adapter = adapter
 

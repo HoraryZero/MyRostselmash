@@ -1,12 +1,12 @@
 package ru.nowandroid.youtube.nowjsoupandroid.list
 
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import ru.nowandroid.youtube.nowjsoupandroid.R
 import java.util.zip.Inflater
 
-class DataAdapter : RecyclerView.Adapter<ViewHolder>() {
+class DataAdapter : androidx.recyclerview.widget.RecyclerView.Adapter<ViewHolder>() {
 
     private val listNews = mutableListOf<News>()
 

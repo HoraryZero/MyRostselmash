@@ -1,7 +1,7 @@
 package ru.nowandroid.youtube.nowjsoupandroid
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.ui.NavigationUI
@@ -26,6 +26,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onSupportNavigateUp(): Boolean {
-        return NavigationUI.navigateUp(null, navController)
+        return NavigationUI.navigateUp(navController,  null)
     }
 }
