@@ -3,12 +3,14 @@ package ru.nowandroid.youtube.nowjsoupandroid
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.navigation.NavController
 import kotlinx.android.synthetic.main.activity_bottom.*
+import ru.nowandroid.youtube.nowjsoupandroid.fragments.DashboardFragment
+import ru.nowandroid.youtube.nowjsoupandroid.fragments.ExploreFragment
+import ru.nowandroid.youtube.nowjsoupandroid.fragments.NotificationFragment
+import ru.nowandroid.youtube.nowjsoupandroid.fragments.ProfileFragment
+
 
 class MainActivity : AppCompatActivity() {
-
-    private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -19,38 +21,32 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_bottom)
 
-        //Load Fragment
-        loadFragment(ExploreFragment())
+        val exploreFragment = ExploreFragment()
+        val dashboardFragment = DashboardFragment()
+        val notificationFragment = NotificationFragment()
+        val profileFragment = ProfileFragment()
 
-        bottomNavigationView.setOnNavigationItemSelectedListener { menuItem ->
-            when (menuItem.itemId) {
-                R.id.navigationExplore -> {
-                    loadFragment(ExploreFragment())
-                    return@setOnNavigationItemSelectedListener true
-                }
-                R.id.navigationDashboard -> {
-                    loadFragment(DashboardFragment())
-                    return@setOnNavigationItemSelectedListener true
-                }
-                R.id.navigationProfile -> {
-                    loadFragment(ProfileFragment())
-                    return@setOnNavigationItemSelectedListener true
-                }
-                else -> {
-                    return@setOnNavigationItemSelectedListener false
-                }
+        makeCurrentFragment(exploreFragment)
+
+        bottom_navigation.setOnNavigationItemSelectedListener {
+            when (it.itemId){
+                R.id.explore -> makeCurrentFragment(exploreFragment)
+                R.id.dashboard -> makeCurrentFragment(dashboardFragment)
+                R.id.notifications -> makeCurrentFragment(notificationFragment)
+                R.id.profile -> makeCurrentFragment(profileFragment)
+
             }
+            true
         }
     }
 
-    private fun loadFragment(fragment: Fragment) {
-
-        supportFragmentManager.beginTransaction().also { fragmentTransaction ->
-            fragmentTransaction.replace(R.id.fragmentContainer, fragment)
-            fragmentTransaction.commit()
-        }
-    }
+    private fun makeCurrentFragment(fragment: Fragment) =
+            supportFragmentManager.beginTransaction().apply {
+                replace(R.id.fl_wrapper, fragment)
+                commit()
+            }
 }
+
 
 
 

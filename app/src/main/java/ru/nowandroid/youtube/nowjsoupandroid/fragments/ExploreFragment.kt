@@ -1,10 +1,12 @@
-package ru.nowandroid.youtube.nowjsoupandroid
+package ru.nowandroid.youtube.nowjsoupandroid.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+
+import ru.nowandroid.youtube.nowjsoupandroid.R
 
 /**
  * A simple [Fragment] subclass.

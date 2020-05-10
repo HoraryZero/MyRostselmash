@@ -3,5 +3,6 @@
     <string name="explore_title">Главная</string>
     <string name="dashboard_title">Показания</string>
     <string name="profile_title">Аккаунт</string>
+    <string name="notifications_title">Уведомления</string>
 
 </resources>
