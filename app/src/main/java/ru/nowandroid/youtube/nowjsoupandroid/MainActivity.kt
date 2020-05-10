@@ -28,13 +28,13 @@ class MainActivity : AppCompatActivity() {
 
         makeCurrentFragment(exploreFragment)
 
-        bottom_navigation.setOnNavigationItemSelectedListener {
-            when (it.itemId){
+        menu_bottom.setOnItemSelectedListener {id ->
+            when (id) {
+
                 R.id.explore -> makeCurrentFragment(exploreFragment)
                 R.id.dashboard -> makeCurrentFragment(dashboardFragment)
                 R.id.notifications -> makeCurrentFragment(notificationFragment)
                 R.id.profile -> makeCurrentFragment(profileFragment)
-
             }
             true
         }
@@ -46,6 +46,9 @@ class MainActivity : AppCompatActivity() {
                 commit()
             }
 }
+
+
+
 
 
 

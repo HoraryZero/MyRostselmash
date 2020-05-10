@@ -5,8 +5,8 @@
     <color name="colorAccent">#D81B60</color>
     <color name="colorDivider">#BDBDBD</color>
     //Bottom
-    <color name="ic_explore">#53F253</color>
-    <color name="ic_dashboard">#F99000</color>
-    <color name="ic_notifications">#425DF3</color>
-    <color name="navigationProfile">#BE14B6</color>
+    <color name="explore">#53F253</color>
+    <color name="dashboard">#F99000</color>
+    <color name="notifications">#425DF3</color>
+    <color name="Profile">#BE14B6</color>
 </resources>
