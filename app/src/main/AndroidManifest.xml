@@ -14,8 +14,9 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-        <activity android:name=".NewsActivity"></activity>
-        <activity android:name=".BottomFragmentActivity" />
+        <activity android:name=".HomeProfileActivity"/>
+        <activity android:name=".ProfileActivity" />
+        <activity android:name=".NewsActivity"/>
         <activity
             android:name=".MainActivity"
             android:theme="@style/SplashTheme">
