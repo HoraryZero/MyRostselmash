@@ -1,9 +1,9 @@
-package ru.nowandroid.youtube.nowjsoupandroid.list
+package ru.nowandroid.youtube.rostselmash.list
 
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import ru.nowandroid.youtube.nowjsoupandroid.R
+import ru.nowandroid.youtube.rostselmash.R
 import java.util.zip.Inflater
 
 class DataAdapter : androidx.recyclerview.widget.RecyclerView.Adapter<ViewHolder>() {

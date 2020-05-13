@@ -1,4 +1,4 @@
-package ru.nowandroid.youtube.nowjsoupandroid.fragments
+package ru.nowandroid.youtube.rostselmash.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 
-import ru.nowandroid.youtube.nowjsoupandroid.R
+import ru.nowandroid.youtube.rostselmash.R
 
 /**
  * A simple [Fragment] subclass.

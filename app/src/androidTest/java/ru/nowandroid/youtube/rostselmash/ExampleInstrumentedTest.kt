@@ -1,4 +1,4 @@
-package ru.nowandroid.youtube.nowjsoupandroid
+package ru.nowandroid.youtube.rostselmash
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
@@ -17,6 +17,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("ru.nowandroid.youtube.nowjsoupandroid", appContext.packageName)
+        assertEquals("ru.nowandroid.youtube.rostselmash", appContext.packageName)
     }
 }

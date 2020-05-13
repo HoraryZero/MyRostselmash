@@ -1,34 +1,34 @@
 {
   "project_info": {
-    "project_number": "137105807475",
-    "firebase_url": "https://rsmbase-61.firebaseio.com",
-    "project_id": "rsmbase-61",
-    "storage_bucket": "rsmbase-61.appspot.com"
+    "project_number": "834525912287",
+    "firebase_url": "https://rsmdb-1ef61.firebaseio.com",
+    "project_id": "rsmdb-1ef61",
+    "storage_bucket": "rsmdb-1ef61.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:137105807475:android:c2c398446155a169467206",
+        "mobilesdk_app_id": "1:834525912287:android:2626eb126b5911c41e1d6a",
         "android_client_info": {
-          "package_name": "ru.nowandroid.youtube.nowjsoupandroid"
+          "package_name": "ru.nowandroid.youtube.rostselmash"
         }
       },
       "oauth_client": [
         {
-          "client_id": "137105807475-4fldmde40fmv1bh5hhie1vrq1tpepb70.apps.googleusercontent.com",
+          "client_id": "834525912287-k1jcqa8fb13vodf9rb4n4kr37ei3oo6s.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAh3DPtnbhPDeF03pbF4ulwtFTx9X-uurE"
+          "current_key": "AIzaSyDv8FjFIYcsP4Mf3a6e0aI7r3vLJJNrTE8"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "137105807475-4fldmde40fmv1bh5hhie1vrq1tpepb70.apps.googleusercontent.com",
+              "client_id": "834525912287-k1jcqa8fb13vodf9rb4n4kr37ei3oo6s.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

@@ -1,4 +1,4 @@
-package ru.nowandroid.youtube.nowjsoupandroid.list
+package ru.nowandroid.youtube.rostselmash.list
 
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
@@ -13,7 +13,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import org.jsoup.Jsoup
-import ru.nowandroid.youtube.nowjsoupandroid.R
+import ru.nowandroid.youtube.rostselmash.R
 import java.io.IOException
 
 class ListNewsFragment : androidx.fragment.app.Fragment() {

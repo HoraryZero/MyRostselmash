@@ -1,4 +1,4 @@
-package ru.nowandroid.youtube.nowjsoupandroid.list
+package ru.nowandroid.youtube.rostselmash.list
 
 import androidx.recyclerview.widget.RecyclerView
 import android.view.View
@@ -7,7 +7,8 @@ import android.widget.TextView
 import androidx.navigation.findNavController
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item.view.*
-import ru.nowandroid.youtube.nowjsoupandroid.CropSquareTransformation
+import ru.nowandroid.youtube.rostselmash.list.ListNewsFragmentDirections
+import ru.nowandroid.youtube.rostselmash.CropSquareTransformation
 
 class ViewHolder(itemView: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView) {
 

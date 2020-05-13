@@ -1,4 +1,4 @@
-package ru.nowandroid.youtube.nowjsoupandroid
+package ru.nowandroid.youtube.rostselmash
 
 import org.junit.Test
 

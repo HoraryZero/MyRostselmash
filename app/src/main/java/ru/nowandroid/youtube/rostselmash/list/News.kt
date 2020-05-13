@@ -1,4 +1,4 @@
-package ru.nowandroid.youtube.nowjsoupandroid.list
+package ru.nowandroid.youtube.rostselmash.list
 
 class News(
     val title: String,

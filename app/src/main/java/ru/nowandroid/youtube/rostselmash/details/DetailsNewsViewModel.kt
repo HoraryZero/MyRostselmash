@@ -1,4 +1,4 @@
-package ru.nowandroid.youtube.nowjsoupandroid.details
+package ru.nowandroid.youtube.rostselmash.details
 
 import androidx.lifecycle.ViewModel;
 

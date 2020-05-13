@@ -1,11 +1,11 @@
-package ru.nowandroid.youtube.nowjsoupandroid.fragments
+package ru.nowandroid.youtube.rostselmash.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import ru.nowandroid.youtube.nowjsoupandroid.R
+import ru.nowandroid.youtube.rostselmash.R
 
 
 class ProfileFragment : Fragment() {

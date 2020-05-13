@@ -1,4 +1,4 @@
-package ru.nowandroid.youtube.nowjsoupandroid.details
+package ru.nowandroid.youtube.rostselmash.details
 
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
@@ -14,7 +14,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import org.jsoup.Jsoup
-import ru.nowandroid.youtube.nowjsoupandroid.R
+import ru.nowandroid.youtube.rostselmash.R
 import java.io.IOException
 import kotlin.coroutines.CoroutineContext
 

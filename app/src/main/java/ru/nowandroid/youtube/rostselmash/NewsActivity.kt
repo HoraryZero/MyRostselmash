@@ -1,4 +1,4 @@
-package ru.nowandroid.youtube.nowjsoupandroid
+package ru.nowandroid.youtube.rostselmash
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
