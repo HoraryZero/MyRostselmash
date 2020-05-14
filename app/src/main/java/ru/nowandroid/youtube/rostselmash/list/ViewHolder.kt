@@ -1,6 +1,5 @@
 package ru.nowandroid.youtube.rostselmash.list
 
-import androidx.recyclerview.widget.RecyclerView
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView

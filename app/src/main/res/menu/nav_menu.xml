@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group>
+        <item
+            android:id="@+id/nav_profile"
+            android:icon="@drawable/ic_account"
+            android:title="Профиль"/>
+        <item
+            android:id="@+id/nav_messages"
+            android:icon="@drawable/ic_message"
+            android:title="Уведомления"/>
+        <item
+            android:id="@+id/nav_friends"
+            android:icon="@drawable/ic_account"
+            android:title="Контакты"/>
+    </group>
+
+
+    <item android:title="Настройки">
+        <menu>
+            <item
+                android:id="@+id/nav_update"
+                android:icon="@drawable/ic_update"
+                android:title="Редактирование"/>
+            <item
+                android:id="@+id/nav_logout"
+                android:icon="@drawable/ic_assignment"
+                android:title="Выйти"/>
+        </menu>
+    </item>
+</menu>

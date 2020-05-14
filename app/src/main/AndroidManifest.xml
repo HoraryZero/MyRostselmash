@@ -14,10 +14,11 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-        <activity android:name=".NewsActivity"/>
+        <activity android:name=".ProfileActivity"></activity>
+        <activity android:name=".NewsActivity" />
         <activity
             android:name=".MainActivity"
-            android:theme="@style/SplashTheme">
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,6 +26,5 @@
             </intent-filter>
         </activity>
     </application>
-
 
 </manifest>

@@ -1,34 +1,34 @@
 {
   "project_info": {
-    "project_number": "834525912287",
-    "firebase_url": "https://rsmdb-1ef61.firebaseio.com",
-    "project_id": "rsmdb-1ef61",
-    "storage_bucket": "rsmdb-1ef61.appspot.com"
+    "project_number": "800280240677",
+    "firebase_url": "https://rsmkotlin.firebaseio.com",
+    "project_id": "rsmkotlin",
+    "storage_bucket": "rsmkotlin.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:834525912287:android:2626eb126b5911c41e1d6a",
+        "mobilesdk_app_id": "1:800280240677:android:481f03a4dc39828648d5cc",
         "android_client_info": {
           "package_name": "ru.nowandroid.youtube.rostselmash"
         }
       },
       "oauth_client": [
         {
-          "client_id": "834525912287-k1jcqa8fb13vodf9rb4n4kr37ei3oo6s.apps.googleusercontent.com",
+          "client_id": "800280240677-mkg181ejls1u5pgqisd8pvhq6ium1vv3.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDv8FjFIYcsP4Mf3a6e0aI7r3vLJJNrTE8"
+          "current_key": "AIzaSyBWTnwVCMCW-wIQ0GgSQDruORPlOEqWp50"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "834525912287-k1jcqa8fb13vodf9rb4n4kr37ei3oo6s.apps.googleusercontent.com",
+              "client_id": "800280240677-mkg181ejls1u5pgqisd8pvhq6ium1vv3.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
