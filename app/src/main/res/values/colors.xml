@@ -4,9 +4,5 @@
     <color name="colorPrimaryDark">#000000</color>
     <color name="colorAccent">#D81B60</color>
     <color name="colorDivider">#BDBDBD</color>
-    //Bottom
-    <color name="explore">#53F253</color>
-    <color name="dashboard">#F99000</color>
-    <color name="notifications">#425DF3</color>
-    <color name="Profile">#BE14B6</color>
+
 </resources>

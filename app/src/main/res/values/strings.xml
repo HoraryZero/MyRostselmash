@@ -1,8 +1,4 @@
 <resources>
     <string name="app_name">Ростсельмаш</string>
-    <string name="explore_title">Главная</string>
-    <string name="dashboard_title">Производство</string>
-    <string name="notifications_title">Уведомления</string>
-    <string name="profile_title">Аккаунт</string>
 
 </resources>
