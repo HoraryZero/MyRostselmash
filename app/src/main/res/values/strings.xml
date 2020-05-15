@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">Ростсельмаш</string>
-
+    <string name="prefs_file">com.example.reg.PREFERENCE_FILE_KEY</string>
 </resources>
