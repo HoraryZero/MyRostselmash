@@ -60,7 +60,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.nav_friends -> {
 
                 // Open Activity
-                intent = Intent(this, ProfileActivity::class.java)
+                intent = Intent(this, BarChartActivity::class.java)
                 startActivity(intent)
                 return true
             }
