@@ -1,4 +1,4 @@
-package ru.nowandroid.youtube.rostselmash
+package ru.nowandroid.youtube.rostselmash.charts
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -6,6 +6,7 @@ import com.github.mikephil.charting.data.BarData
 import com.github.mikephil.charting.data.BarDataSet
 import com.github.mikephil.charting.data.BarEntry
 import kotlinx.android.synthetic.main.activity_bar_chart.*
+import ru.nowandroid.youtube.rostselmash.R
 
 
 class BarChartActivity : AppCompatActivity() {

@@ -14,8 +14,12 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-        <activity android:name=".PieChartActivity"></activity>
-        <activity android:name=".BarChartActivity" />
+        <activity android:name=".AboutApp"></activity>
+        <activity android:name=".web.ContactWebActivity" />
+        <activity android:name=".web.ProductWebActivity" />
+        <activity android:name=".charts.RadarChartActivity" />
+        <activity android:name=".charts.PieChartActivity" />
+        <activity android:name=".charts.BarChartActivity" />
         <activity android:name=".HomeProfileActivity" />
         <activity android:name=".ProfileActivity" />
         <activity android:name=".NewsActivity" />

@@ -1,8 +1,8 @@
-package ru.nowandroid.youtube.rostselmash
+package ru.nowandroid.youtube.rostselmash.charts
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.github.mikephil.charting.data.PieData
+import ru.nowandroid.youtube.rostselmash.R
 
 class PieChartActivity : AppCompatActivity() {
 

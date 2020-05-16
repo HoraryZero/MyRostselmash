@@ -3,30 +3,47 @@
 
     <group>
         <item
-            android:id="@+id/nav_profile"
+            android:id="@+id/nav_Profile"
             android:icon="@drawable/ic_account"
             android:title="Профиль"/>
         <item
-            android:id="@+id/nav_messages"
+            android:id="@+id/nav_News"
             android:icon="@drawable/ic_message"
             android:title="Новости"/>
-        <item
-            android:id="@+id/nav_friends"
-            android:icon="@drawable/ic_account"
-            android:title="График"/>
     </group>
 
+    <item android:title="Производство">
+        <menu>
 
-    <item android:title="Настройки">
+            <item
+                android:id="@+id/nav_ProductWeb"
+                android:icon="@drawable/ic_message"
+                android:title="Продукция"/>
+            <item
+                android:id="@+id/nav_BarChart"
+                android:icon="@drawable/ic_message"
+                android:title="График Bar"/>
+            <item
+                android:id="@+id/nav_PieChart"
+                android:icon="@drawable/ic_message"
+                android:title="График Pie"/>
+            <item
+                android:id="@+id/nav_RadarChart"
+                android:icon="@drawable/ic_message"
+                android:title="График Radar"/>
+        </menu>
+    </item>
+
+    <item android:title="Информация">
         <menu>
             <item
-                android:id="@+id/nav_update"
-                android:icon="@drawable/ic_update"
-                android:title="Редактирование"/>
-            <item
-                android:id="@+id/nav_logout"
+                android:id="@+id/nav_ContactsInfoWeb"
                 android:icon="@drawable/ic_assignment"
-                android:title="Выйти"/>
+                android:title="Контакты"/>
+            <item
+                android:id="@+id/nav_AboutApp"
+                android:icon="@drawable/ic_message"
+                android:title="О приложении"/>
         </menu>
     </item>
 </menu>

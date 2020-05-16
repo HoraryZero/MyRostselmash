@@ -4,12 +4,16 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
-import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
+import ru.nowandroid.youtube.rostselmash.charts.BarChartActivity
+import ru.nowandroid.youtube.rostselmash.charts.PieChartActivity
+import ru.nowandroid.youtube.rostselmash.charts.RadarChartActivity
+import ru.nowandroid.youtube.rostselmash.web.ContactWebActivity
+import ru.nowandroid.youtube.rostselmash.web.ProductWebActivity
 
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -43,38 +47,59 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.nav_profile -> {
+            R.id.nav_Profile -> {
 
                 // Open Activity
                 intent = Intent(this, ProfileActivity::class.java)
                 startActivity(intent)
                 return true
             }
-            R.id.nav_messages -> {
+            R.id.nav_News -> {
 
                 // Open Activity
                 intent = Intent(this, NewsActivity::class.java)
                 startActivity(intent)
                 return true
             }
-            R.id.nav_friends -> {
+            R.id.nav_ProductWeb -> {
+
+                // Open Activity
+                intent = Intent(this, ProductWebActivity::class.java)
+                startActivity(intent)
+                return true
+            }
+            R.id.nav_BarChart -> {
 
                 // Open Activity
                 intent = Intent(this, BarChartActivity::class.java)
                 startActivity(intent)
                 return true
             }
-            R.id.nav_update -> {
+            R.id.nav_PieChart -> {
 
                 // Open Activity
-                intent = Intent(this, ProfileActivity::class.java)
+                intent = Intent(this, PieChartActivity::class.java)
                 startActivity(intent)
                 return true
             }
-            R.id.nav_logout -> {
+            R.id.nav_RadarChart -> {
 
                 // Open Activity
-                intent = Intent(this, ProfileActivity::class.java)
+                intent = Intent(this, RadarChartActivity::class.java)
+                startActivity(intent)
+                return true
+            }
+            R.id.nav_ContactsInfoWeb -> {
+
+                // Open Activity
+                intent = Intent(this, ContactWebActivity::class.java)
+                startActivity(intent)
+                return true
+            }
+            R.id.nav_AboutApp -> {
+
+                // Open Activity
+                intent = Intent(this, AboutApp::class.java)
                 startActivity(intent)
                 return true
             }
