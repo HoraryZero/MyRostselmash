@@ -2,6 +2,8 @@ package ru.nowandroid.youtube.rostselmash.charts
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
+import com.github.mikephil.charting.components.XAxis
 import com.github.mikephil.charting.data.BarData
 import com.github.mikephil.charting.data.BarDataSet
 import com.github.mikephil.charting.data.BarEntry
@@ -19,42 +21,36 @@ class BarChartActivity : AppCompatActivity() {
     }
 
     private fun setBarChart() {
-        val entries = ArrayList<BarEntry>()
-        entries.add(BarEntry(90f, 0))
-        entries.add(BarEntry(87f, 1))
-        entries.add(BarEntry(93f, 2))
-        entries.add(BarEntry(98f, 3))
-        entries.add(BarEntry(97f, 4))
-        entries.add(BarEntry(103f, 5))
-        entries.add(BarEntry(115f, 6))
-        entries.add(BarEntry(98f, 7))
-        entries.add(BarEntry(114f, 8))
-        entries.add(BarEntry(93f, 9))
-        entries.add(BarEntry(90f, 10))
+        val bargroup = ArrayList<BarEntry>()
+        bargroup.add(BarEntry(0f, 30f, "0"))
+        bargroup.add(BarEntry(1f, 2f, "1"))
+        bargroup.add(BarEntry(2f, 4f, "2"))
+        bargroup.add(BarEntry(3f, 6f, "3"))
+        bargroup.add(BarEntry(4f, 8f, "4"))
+        bargroup.add(BarEntry(5f, 10f, "5"))
+        bargroup.add(BarEntry(6f, 22f, "6"))
+        bargroup.add(BarEntry(7f, 12.5f, "7"))
+        bargroup.add(BarEntry(8f, 22f, "8"))
+        bargroup.add(BarEntry(9f, 32f, "9"))
+        bargroup.add(BarEntry(10f, 54f, "10"))
+        bargroup.add(BarEntry(11f, 28f, "11"))
 
-        val barDataSet = BarDataSet(entries, "Количество комбайнов за год")
+        // creating dataset for Bar Group
+        val barDataSet = BarDataSet(bargroup, "Комбайны")
 
-        val labels = ArrayList<String>()
-        labels.add("2010")
-        labels.add("2011")
-        labels.add("2012")
-        labels.add("2013")
-        labels.add("2014")
-        labels.add("2015")
-        labels.add("2016")
-        labels.add("2017")
-        labels.add("2018")
-        labels.add("2019")
-        labels.add("2020")
+        barDataSet.color = ContextCompat.getColor(this, R.color.colorAccent)
 
-        val data = BarData(labels, barDataSet)
-        barChart.data = data //
-
-        barChart.setDescription("")  // Подпись в нижнем правом углу
-
-        //barDataSet.setColors(ColorTemplate.COLORFUL_COLORS)
-        barDataSet.color = resources.getColor(R.color.colorAccent)
-
-        barChart.animateY(5000)
+        val data = BarData(barDataSet)
+        barChart.setData(data)
+        barChart.xAxis.position = XAxis.XAxisPosition.BOTTOM
+        barChart.xAxis.labelCount = 11
+        barChart.xAxis.enableGridDashedLine(5f, 5f, 0f)
+        barChart.axisRight.enableGridDashedLine(5f, 5f, 0f)
+        barChart.axisLeft.enableGridDashedLine(5f, 5f, 0f)
+        barChart.description.isEnabled = false
+        barChart.animateY(1000)
+        barChart.legend.isEnabled = false
+        barChart.setPinchZoom(true)
+        barChart.data.setDrawValues(false)
     }
 }
