@@ -76,7 +76,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Google" />
+                android:drawableStart="@mipmap/google"
+                android:text="Google"
+                android:textCursorDrawable="@mipmap/google" />
 
             <Space
                 android:layout_width="wrap_content"

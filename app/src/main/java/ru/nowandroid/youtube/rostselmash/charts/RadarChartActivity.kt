@@ -18,28 +18,22 @@ class RadarChartActivity : AppCompatActivity() {
         setContentView(R.layout.activity_radar_chart)
 
         val yVals = ArrayList<Entry>()
-        yVals.add(Entry(0f, 30f, "0"))
-        yVals.add(Entry(1f, 2f, "1"))
-        yVals.add(Entry(2f, 4f, "2"))
-        yVals.add(Entry(3f, 6f, "3"))
-        yVals.add(Entry(4f, 8f, "4"))
-        yVals.add(Entry(5f, 10f, "5"))
-        yVals.add(Entry(6f, 22f, "6"))
-        yVals.add(Entry(7f, 12.5f, "7"))
-        yVals.add(Entry(8f, 22f, "8"))
-        yVals.add(Entry(9f, 32f, "9"))
-        yVals.add(Entry(10f, 54f, "10"))
-        yVals.add(Entry(11f, 28f, "11"))
+        yVals.add(Entry(1f, 185f, "1"))
+        yVals.add(Entry(2f, 265f, "2"))
+        yVals.add(Entry(3f, 225f, "3"))
+        yVals.add(Entry(4f, 200f, "4"))
+        yVals.add(Entry(5f, 250f, "5"))
+        yVals.add(Entry(6f, 265f, "6"))
+        yVals.add(Entry(7f, 215f, "7"))
+        yVals.add(Entry(8f, 275f, "8"))
+        yVals.add(Entry(9f, 265f, "9"))
+        yVals.add(Entry(10f, 205f, "10"))
+        yVals.add(Entry(11f, 195f, "11"))
+        yVals.add(Entry(12f, 238f, "12"))
 
         val set1: LineDataSet
         set1 = LineDataSet(yVals, "DataSet 1")
 
-        // set1.fillAlpha = 110
-        // set1.setFillColor(Color.RED);
-
-        // set the line to be drawn like this "- - - - - -"
-        // set1.enableDashedLine(5f, 5f, 0f);
-        // set1.enableDashedHighlightLine(10f, 5f, 0f);
         set1.color = Color.BLUE
         set1.setCircleColor(Color.BLUE)
         set1.lineWidth = 1f

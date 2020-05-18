@@ -22,23 +22,23 @@ class BarChartActivity : AppCompatActivity() {
 
     private fun setBarChart() {
         val bargroup = ArrayList<BarEntry>()
-        bargroup.add(BarEntry(0f, 30f, "0"))
-        bargroup.add(BarEntry(1f, 2f, "1"))
-        bargroup.add(BarEntry(2f, 4f, "2"))
-        bargroup.add(BarEntry(3f, 6f, "3"))
-        bargroup.add(BarEntry(4f, 8f, "4"))
-        bargroup.add(BarEntry(5f, 10f, "5"))
-        bargroup.add(BarEntry(6f, 22f, "6"))
-        bargroup.add(BarEntry(7f, 12.5f, "7"))
-        bargroup.add(BarEntry(8f, 22f, "8"))
-        bargroup.add(BarEntry(9f, 32f, "9"))
-        bargroup.add(BarEntry(10f, 54f, "10"))
-        bargroup.add(BarEntry(11f, 28f, "11"))
+        bargroup.add(BarEntry(1f, 2600f, "1"))
+        bargroup.add(BarEntry(2f, 2800f, "2"))
+        bargroup.add(BarEntry(3f, 2500f, "3"))
+        bargroup.add(BarEntry(4f, 2820f, "4"))
+        bargroup.add(BarEntry(5f, 2880f, "5"))
+        bargroup.add(BarEntry(6f, 2550f, "6"))
+        bargroup.add(BarEntry(7f, 2570f, "7"))
+        bargroup.add(BarEntry(8f, 2830f, "8"))
+        bargroup.add(BarEntry(9f, 2950f, "9"))
+        bargroup.add(BarEntry(10f, 2800f, "10"))
+        bargroup.add(BarEntry(11f, 2600f, "11"))
+        bargroup.add(BarEntry(12f, 2500f, "12"))
 
         // creating dataset for Bar Group
         val barDataSet = BarDataSet(bargroup, "Комбайны")
 
-        barDataSet.color = ContextCompat.getColor(this, R.color.colorAccent)
+        barDataSet.color = ContextCompat.getColor(this, R.color.colorOrange)
 
         val data = BarData(barDataSet)
         barChart.setData(data)
@@ -48,7 +48,7 @@ class BarChartActivity : AppCompatActivity() {
         barChart.axisRight.enableGridDashedLine(5f, 5f, 0f)
         barChart.axisLeft.enableGridDashedLine(5f, 5f, 0f)
         barChart.description.isEnabled = false
-        barChart.animateY(1000)
+        barChart.animateY(100)
         barChart.legend.isEnabled = false
         barChart.setPinchZoom(true)
         barChart.data.setDrawValues(false)

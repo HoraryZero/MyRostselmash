@@ -25,14 +25,16 @@ class PieChartActivity : AppCompatActivity() {
 
         val listPie = ArrayList<PieEntry>()
         val listColors = ArrayList<Int>()
-        listPie.add(PieEntry(70F, "RSM-410"))
-        listColors.add(resources.getColor(R.color.colorGreen))
-        listPie.add(PieEntry(50F, "RSM-380"))
+        listPie.add(PieEntry(20F, "Модель-RSM"))
         listColors.add(resources.getColor(R.color.colorOrange))
-        listPie.add(PieEntry(30F, "NT-200"))
+        listPie.add(PieEntry(25F, "Модель-Torum"))
+        listColors.add(resources.getColor(R.color.colorYellow))
+        listPie.add(PieEntry(45F, "Модель-Acros"))
+        listColors.add(resources.getColor(R.color.colorGreen))
+        listPie.add(PieEntry(10F, "Модель-Nova"))
         listColors.add(resources.getColor(R.color.colorRed))
 
-        val pieDataSet = PieDataSet(listPie, "Комбайны")
+        val pieDataSet = PieDataSet(listPie, "")
         pieChart.centerText = "Комбайны"
         pieDataSet.colors = listColors
         pieDataSet.valueTextSize = 16f
