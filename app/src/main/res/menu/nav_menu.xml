@@ -8,7 +8,7 @@
             android:title="Профиль"/>
         <item
             android:id="@+id/nav_News"
-            android:icon="@drawable/ic_message"
+            android:icon="@drawable/ic_news"
             android:title="Новости"/>
     </group>
 
@@ -17,20 +17,20 @@
 
             <item
                 android:id="@+id/nav_ProductWeb"
-                android:icon="@drawable/ic_message"
+                android:icon="@drawable/ic_product"
                 android:title="Продукция"/>
             <item
                 android:id="@+id/nav_BarChart"
-                android:icon="@drawable/ic_message"
-                android:title="График Bar"/>
+                android:icon="@drawable/ic_charts"
+                android:title="Объёмы производства"/>
             <item
                 android:id="@+id/nav_PieChart"
-                android:icon="@drawable/ic_message"
-                android:title="График Pie"/>
+                android:icon="@drawable/ic_charts"
+                android:title="Соотношение производства"/>
             <item
                 android:id="@+id/nav_RadarChart"
-                android:icon="@drawable/ic_message"
-                android:title="График Radar"/>
+                android:icon="@drawable/ic_charts"
+                android:title="Прибыль предприятия"/>
         </menu>
     </item>
 
@@ -42,7 +42,7 @@
                 android:title="Контакты"/>
             <item
                 android:id="@+id/nav_AboutApp"
-                android:icon="@drawable/ic_message"
+                android:icon="@drawable/ic_about"
                 android:title="О приложении"/>
         </menu>
     </item>

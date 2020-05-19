@@ -21,13 +21,11 @@ class ProductWebActivity : AppCompatActivity() {
         setContentView(R.layout.activity_product_web)
 
         // Refresh
-
         swipeRefresh.setOnRefreshListener {
             webView.reload()
         }
 
         // WebView
-
         webView.webChromeClient = object : WebChromeClient() {
 
         }

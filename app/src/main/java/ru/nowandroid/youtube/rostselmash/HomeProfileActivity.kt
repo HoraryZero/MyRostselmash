@@ -1,12 +1,21 @@
 package ru.nowandroid.youtube.rostselmash
 
+import android.app.Notification
+import android.app.NotificationChannel
+import android.app.NotificationManager
 import android.content.Context
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.RemoteViews
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_home_profile.*
 
 class HomeProfileActivity : AppCompatActivity() {
+
+    private var CHANNEL_ID = "MY_ID"
 
     enum class ProviderType {
         BASIC,
@@ -28,6 +37,21 @@ class HomeProfileActivity : AppCompatActivity() {
         prefs.putString("provider", provider)
         prefs.apply()
 
+        // Вызов уведомления
+        CreateNotificationChannel()
+        val notificationLayout = RemoteViews(packageName, R.layout.custom_notification)
+        var builder = NotificationCompat.Builder(this, CHANNEL_ID)
+                .setContentTitle("YouTitle")
+                .setSmallIcon(R.drawable.ic_notifications)
+                .setStyle(NotificationCompat.DecoratedCustomViewStyle())
+                .setCustomContentView(notificationLayout)
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+
+        button5.setOnClickListener{
+            with(NotificationManagerCompat.from(this)) {
+                notify(0, builder.build())
+            }
+        }
     }
 
     private fun setup(email: String, provider: String) {
@@ -47,5 +71,22 @@ class HomeProfileActivity : AppCompatActivity() {
             FirebaseAuth.getInstance().signOut()
             onBackPressed()
         }
+    }
+
+    // Функция выдающая PUSH-уведомления
+    private fun CreateNotificationChannel() {
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+
+            val name = "App Notification"
+            val descriptionText = "This is my discription nofificate"
+            val importnace: Int = NotificationManager.IMPORTANCE_DEFAULT
+            val channel = NotificationChannel(CHANNEL_ID, name, importnace).apply {
+                description = descriptionText
+            }
+            val notificationManager: NotificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            notificationManager.createNotificationChannel(channel)
+        }
+
     }
 }
