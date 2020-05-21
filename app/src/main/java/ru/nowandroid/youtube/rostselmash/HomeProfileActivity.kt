@@ -47,7 +47,7 @@ class HomeProfileActivity : AppCompatActivity() {
                 .setCustomContentView(notificationLayout)
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
 
-        button5.setOnClickListener{
+        button6.setOnClickListener{
             with(NotificationManagerCompat.from(this)) {
                 notify(0, builder.build())
             }

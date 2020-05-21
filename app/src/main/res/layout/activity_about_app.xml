@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,4 +7,41 @@
     android:layout_height="match_parent"
     tools:context=".AboutApp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageView
+        android:layout_width="132dp"
+        android:layout_height="131dp"
+        android:layout_marginRight="12dp"
+        android:src="@mipmap/mysplash" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Название: Ростсельмаш"
+            android:textColor="#000000"
+            android:textSize="16dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Приложение создано для выдачи информации о предприятии, его продукции, контактных данных, а также ведения состояния производства в облачной базе данных."
+            android:textColor="#F83C3C" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Версия: 1.0.0"
+            android:textColor="#FFC107" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Разработал: Студент группы ПО-41 Паршин Михаил"
+            android:textColor="#4CAF50" />
+    </LinearLayout>>
+</LinearLayout>
