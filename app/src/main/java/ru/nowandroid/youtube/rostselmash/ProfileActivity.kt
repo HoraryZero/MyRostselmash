@@ -1,26 +1,47 @@
 package ru.nowandroid.youtube.rostselmash
 
+import android.app.Service
 import android.content.Context
 import android.content.Intent
+import android.net.ConnectivityManager
+import android.net.NetworkInfo
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
-
 import kotlinx.android.synthetic.main.activity_profile.*
 
 class ProfileActivity : AppCompatActivity() {
 
     private val GOOGLE_SIGN_IN = 100
 
+    // Проверка соединения
+    private var context = this
+    private var connectivity: ConnectivityManager? = null
+    private var connectInfo: NetworkInfo? = null
+    private var toastConnectedInfo = ""
+    private var toastDisconnectedInfo = "Отсутствует соединение с интернетом"
+    private val duration = Toast.LENGTH_SHORT
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
+
+        // Проверка на наличие соеднинения
+        if (checkConnect()) {
+
+            Toast.makeText(context, toastConnectedInfo, duration)
+        } else {
+
+            Toast.makeText(context, toastDisconnectedInfo, duration).show()
+            this.finish()
+        }
 
         setup()
         session()
@@ -144,5 +165,23 @@ class ProfileActivity : AppCompatActivity() {
                 showAlert()
             }
         }
+    }
+
+    private fun checkConnect() : Boolean {
+
+        connectivity = context.getSystemService(Service.CONNECTIVITY_SERVICE) as ConnectivityManager
+
+        if(connectivity != null) {
+
+            connectInfo = connectivity!!.activeNetworkInfo
+
+            if (connectInfo != null) {
+
+                if (connectInfo!!.state == NetworkInfo.State.CONNECTED) {
+                    return true
+                }
+            }
+        }
+        return false
     }
 }
