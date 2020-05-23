@@ -3,8 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="ru.nowandroid.youtube.rostselmash">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
 
     <application
         android:allowBackup="true"
@@ -15,6 +18,8 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
+        <activity android:name=".activities.EditStateActivity"></activity>
+        <activity android:name=".activities.ShowStateActivity" />
         <activity android:name=".AboutApp" />
         <activity android:name=".web.ContactWebActivity" />
         <activity android:name=".web.ProductWebActivity" />

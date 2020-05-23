@@ -4,14 +4,17 @@ import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Context
+import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.RemoteViews
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_home_profile.*
+import ru.nowandroid.youtube.rostselmash.activities.ShowStateActivity
 
 class HomeProfileActivity : AppCompatActivity() {
 
@@ -51,6 +54,11 @@ class HomeProfileActivity : AppCompatActivity() {
             with(NotificationManagerCompat.from(this)) {
                 notify(0, builder.build())
             }
+        }
+
+        button4.setOnClickListener {
+            val intent = Intent(this, ShowStateActivity::class.java)
+            startActivity(intent)
         }
     }
 
