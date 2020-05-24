@@ -2,7 +2,8 @@
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="80dp"
+    android:layout_margin="5dp">
 
     <RelativeLayout
         android:layout_margin="5dp"
@@ -10,7 +11,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="fill">
 
-        <com.google.android.material.textview.MaterialTextView
+        <TextView
             android:id="@+id/titleView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -22,7 +23,7 @@
             android:textColor="@color/colorPrimaryDark"
             android:textSize="15sp"/>
 
-        <com.google.android.material.textview.MaterialTextView
+        <TextView
             android:id="@+id/contentView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

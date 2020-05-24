@@ -81,6 +81,8 @@ dependencies {
     implementation "androidx.biometric:biometric:$biometric_version"
     // Lottie
     implementation "com.airbnb.android:lottie:$lottie_version"
+    // PDF
+    implementation 'com.itextpdf:itextg:5.5.10'
     //
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'

@@ -1,16 +1,13 @@
 package ru.nowandroid.youtube.rostselmash.charts
 
-import android.graphics.ColorMatrix
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.github.mikephil.charting.animation.Easing
-import ru.nowandroid.youtube.rostselmash.R
-import com.github.mikephil.charting.charts.PieChart
 import com.github.mikephil.charting.data.PieData
 import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.data.PieEntry
-import com.github.mikephil.charting.utils.ColorTemplate
 import kotlinx.android.synthetic.main.activity_pie_chart.*
+import ru.nowandroid.youtube.rostselmash.R
 
 class PieChartActivity : AppCompatActivity() {
 

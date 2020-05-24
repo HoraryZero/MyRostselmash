@@ -9,7 +9,6 @@ import androidx.biometric.BiometricManager
 import androidx.biometric.BiometricPrompt
 import androidx.core.content.ContextCompat
 import kotlinx.android.synthetic.main.activity_finger.*
-import ru.nowandroid.youtube.rostselmash.MainActivity
 import ru.nowandroid.youtube.rostselmash.NewsActivity
 import ru.nowandroid.youtube.rostselmash.R
 

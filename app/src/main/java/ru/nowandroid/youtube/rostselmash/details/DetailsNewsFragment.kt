@@ -1,12 +1,11 @@
 package ru.nowandroid.youtube.rostselmash.details
 
-import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProviders
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.details_news_fragment.*
 import kotlinx.coroutines.CoroutineScope
