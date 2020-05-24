@@ -147,7 +147,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="jar:file:/C:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material_design_icons/social/ic_notifications_active_black_24dp.xml" />
+                                      <entry key="url" value="jar:file:/C:/Program%20Files/Android/Android%20Studio%20Preview/plugins/android/lib/android.jar!/images/material/icons/materialicons/fingerprint/baseline_fingerprint_24.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -157,7 +157,7 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="outputName" value="ic_notifications" />
+                            <entry key="outputName" value="ic_fingerprint" />
                             <entry key="sourceFile" value="C:\Users\HoraryZero" />
                           </map>
                         </option>

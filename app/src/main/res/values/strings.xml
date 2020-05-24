@@ -15,8 +15,13 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
-
+    // Save_State
     <string name="title_activity_auth">Login or Sign up</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
+    // FingerPrint
+    <string name="login_biometric">Login with Biometric</string>
+    <string name="biometric_desc">use biometric for faster and \neasy access to your account</string>
+    <string name="btn_use_biometric">Use Biometric</string>
+    <string name="save_state1">com.dev.planet.biometric.PREFERENCE_FILE_KEY</string>
 </resources>

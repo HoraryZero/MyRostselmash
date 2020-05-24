@@ -15,6 +15,7 @@ import androidx.core.app.NotificationManagerCompat
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_home_profile.*
 import ru.nowandroid.youtube.rostselmash.activities.ShowStateActivity
+import ru.nowandroid.youtube.rostselmash.finger.FingerActivity
 
 class HomeProfileActivity : AppCompatActivity() {
 
@@ -58,6 +59,10 @@ class HomeProfileActivity : AppCompatActivity() {
 
         button4.setOnClickListener {
             val intent = Intent(this, ShowStateActivity::class.java)
+            startActivity(intent)
+        }
+        button7.setOnClickListener {
+            val intent = Intent(this, FingerActivity::class.java)
             startActivity(intent)
         }
     }
