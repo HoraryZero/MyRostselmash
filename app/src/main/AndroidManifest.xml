@@ -18,7 +18,8 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-        <activity android:name=".activities.EditStateActivity"></activity>
+        <activity android:name=".finger.FingerActivity"></activity>
+        <activity android:name=".activities.EditStateActivity" />
         <activity android:name=".activities.ShowStateActivity" />
         <activity android:name=".AboutApp" />
         <activity android:name=".web.ContactWebActivity" />

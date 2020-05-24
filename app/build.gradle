@@ -22,7 +22,14 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
+
+def biometric_version = '1.0.0'
+def lottie_version = '3.3.0'
 
 repositories {
     maven { url "https://jitpack.io" }
@@ -70,6 +77,10 @@ dependencies {
     // Picture
     implementation 'com.squareup.picasso:picasso:2.3.2'
     implementation 'com.google.android.gms:play-services-maps:17.0.0'
+    // Jetpack biometric
+    implementation "androidx.biometric:biometric:$biometric_version"
+    // Lottie
+    implementation "com.airbnb.android:lottie:$lottie_version"
     //
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
