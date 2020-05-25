@@ -35,11 +35,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     private val duration = Toast.LENGTH_SHORT
 
     override fun onCreate(savedInstanceState: Bundle?) {
-
-        // SplashScreen
-//        Thread.sleep(2000)
-//        setTheme(R.style.AppTheme)
-
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_navigate)
 

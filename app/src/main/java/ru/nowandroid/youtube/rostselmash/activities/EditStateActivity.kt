@@ -1,13 +1,18 @@
 package ru.nowandroid.youtube.rostselmash.activities
 
 import android.Manifest
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.content.Context
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
 import android.os.Environment
+import android.widget.RemoteViews
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.google.firebase.auth.FirebaseAuth
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.itextpdf.text.Document
@@ -24,6 +29,8 @@ import kotlin.collections.HashMap
 
 class EditStateActivity : AppCompatActivity() {
 
+    private var CHANNEL_ID = "MY_ID"
+
     companion object {
         val EXTRA_NOTE = "state"
     }
@@ -31,6 +38,7 @@ class EditStateActivity : AppCompatActivity() {
     private val STORAGE_CODE: Int = 100
     lateinit var state: State
     lateinit var mDb: DatabaseReference
+    private val userIDFB = "IZ07eK5azYXsLMupuWWMumYCbsj1"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,7 +51,24 @@ class EditStateActivity : AppCompatActivity() {
         stateContent.text?.append(state.content)
 
         mDb = FirebaseDatabase.getInstance().reference
-        saveBtn.setOnClickListener { save() }
+
+        // Вызов Push-уведомления
+        CreateNotificationChannel()
+        val notificationLayout = RemoteViews(packageName, R.layout.custom_notification)
+        var builder = NotificationCompat.Builder(this, CHANNEL_ID)
+                .setContentTitle("YouTitle")
+                .setSmallIcon(R.drawable.ic_notifications)
+                .setStyle(NotificationCompat.DecoratedCustomViewStyle())
+                .setCustomContentView(notificationLayout)
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+        // Сохранение записи и вызов Push-уведомления
+        saveBtn.setOnClickListener {
+           //
+            with(NotificationManagerCompat.from(this)) {
+                notify(0, builder.build())
+            }
+            save()
+        }
 
         saveBtnPDF.setOnClickListener {
 
@@ -88,7 +113,7 @@ class EditStateActivity : AppCompatActivity() {
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         when(requestCode) {
             STORAGE_CODE -> {
-                if (grantResults.size > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     savePDF()
                 }
                 else {
@@ -102,17 +127,34 @@ class EditStateActivity : AppCompatActivity() {
         state.title = stateTitle.text.toString()
         state.content = stateContent.text.toString()
 
-        val uid = FirebaseAuth.getInstance().currentUser?.uid
-        val path = "users/" + uid + "/state"
-        val key = if (state.id.equals("")) mDb.child(path).push().key else state.id
+        val uid = userIDFB
+        val path = "users/$uid/state"
+        val key = if (state.id == "") mDb.child(path).push().key else state.id
         val childUpdates: MutableMap<String, Any> = HashMap()
 
-        childUpdates[path + "/" + key] = state.toMap()
+        childUpdates["$path/$key"] = state.toMap()
         mDb.updateChildren(childUpdates).addOnCompleteListener { onSaveComplete() }
     }
 
     fun onSaveComplete() {
         Toast.makeText(this, "Сохранено", Toast.LENGTH_SHORT).show()
         finish()
+    }
+
+    // Функция выдающая Push-уведомления
+    private fun CreateNotificationChannel() {
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+
+            val name = "App Notification"
+            val descriptionText = "This is my discription nofificate"
+            val importnace: Int = NotificationManager.IMPORTANCE_DEFAULT
+            val channel = NotificationChannel(CHANNEL_ID, name, importnace).apply {
+                description = descriptionText
+            }
+            val notificationManager: NotificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            notificationManager.createNotificationChannel(channel)
+        }
+
     }
 }

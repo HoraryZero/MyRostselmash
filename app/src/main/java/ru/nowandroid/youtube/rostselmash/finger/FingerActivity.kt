@@ -9,10 +9,13 @@ import androidx.biometric.BiometricManager
 import androidx.biometric.BiometricPrompt
 import androidx.core.content.ContextCompat
 import kotlinx.android.synthetic.main.activity_finger.*
-import ru.nowandroid.youtube.rostselmash.NewsActivity
+import ru.nowandroid.youtube.rostselmash.MainActivity
 import ru.nowandroid.youtube.rostselmash.R
 
 class FingerActivity : AppCompatActivity() {
+
+    val ONE = 1
+    val TWO = 2
 
     private val TAG = FingerActivity::getLocalClassName.toString()
 
@@ -21,9 +24,14 @@ class FingerActivity : AppCompatActivity() {
     private lateinit var biometricManager: BiometricManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
+        // Splashscreen
+        Thread.sleep(2000)
+        setTheme(R.style.AppTheme)
+
         super.onCreate(savedInstanceState)
 
-            setContentView(R.layout.activity_finger)
+        if (ONE < TWO) {setContentView(R.layout.activity_finger)
 
             biometricManager = BiometricManager.from(this)
             val executor = ContextCompat.getMainExecutor(this)
@@ -58,6 +66,10 @@ class FingerActivity : AppCompatActivity() {
             login.setOnClickListener {
                 biometricPrompt.authenticate(promptInfo)
             }
+        }
+        else {
+            setContentView(R.layout.activity_navigate)
+        }
     }
 
     private fun showToast(message : String){
@@ -66,7 +78,7 @@ class FingerActivity : AppCompatActivity() {
 
     // Need opened MainActivity (need Fix Bag - Navigation Menu)
     private fun goToHomeActivity(){
-        val intent = Intent(this, NewsActivity::class.java)
+        val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
     }
 

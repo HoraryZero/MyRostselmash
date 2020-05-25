@@ -106,7 +106,7 @@
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Включить Push" />
+                android:text="Включить" />
 
             <Space
                 android:layout_width="wrap_content"
@@ -118,7 +118,7 @@
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Отпечаток/Вкл -> News" />
+                android:text="Выключить" />
 
             <Space
                 android:layout_width="wrap_content"
