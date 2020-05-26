@@ -10,12 +10,10 @@ import androidx.biometric.BiometricPrompt
 import androidx.core.content.ContextCompat
 import kotlinx.android.synthetic.main.activity_finger.*
 import ru.nowandroid.youtube.rostselmash.MainActivity
+import ru.nowandroid.youtube.rostselmash.MyPreference
 import ru.nowandroid.youtube.rostselmash.R
 
 class FingerActivity : AppCompatActivity() {
-
-    val ONE = 1
-    val TWO = 2
 
     private val TAG = FingerActivity::getLocalClassName.toString()
 
@@ -31,7 +29,11 @@ class FingerActivity : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
 
-        if (ONE < TWO) {setContentView(R.layout.activity_finger)
+        // SharedPreference
+        val preference = MyPreference(this)
+        var loginCount = preference.getLoginCount()
+
+        if (loginCount == 2) {setContentView(R.layout.activity_finger)
 
             biometricManager = BiometricManager.from(this)
             val executor = ContextCompat.getMainExecutor(this)
@@ -42,7 +44,7 @@ class FingerActivity : AppCompatActivity() {
                     object : BiometricPrompt.AuthenticationCallback(){
                         override fun onAuthenticationError(errorCode: Int, errString: CharSequence) {
                             super.onAuthenticationError(errorCode, errString)
-                            showToast("Authentication error $errString")
+                            showToast("Аутентификация не удалась, причина: $errString")
                         }
 
                         override fun onAuthenticationSucceeded(result: BiometricPrompt.AuthenticationResult) {
@@ -52,7 +54,7 @@ class FingerActivity : AppCompatActivity() {
 
                         override fun onAuthenticationFailed() {
                             super.onAuthenticationFailed()
-                            showToast("Authentication Failed")
+                            showToast("Аутентификация не удалась")
                         }
                     })
 
@@ -60,7 +62,7 @@ class FingerActivity : AppCompatActivity() {
             promptInfo = BiometricPrompt.PromptInfo.Builder()
                     .setTitle("Биометрическая авторизация в приложении")
                     .setDescription("Используйте биометрический датчик для авторизации")
-                    .setNegativeButtonText("use email for login")
+                    .setNegativeButtonText("Использовать Email")
                     .build()
 
             login.setOnClickListener {
@@ -68,7 +70,7 @@ class FingerActivity : AppCompatActivity() {
             }
         }
         else {
-            setContentView(R.layout.activity_navigate)
+            goToHomeActivity()
         }
     }
 

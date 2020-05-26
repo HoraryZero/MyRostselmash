@@ -26,7 +26,7 @@ class HomeProfileActivity : AppCompatActivity() {
         val bundle = intent.extras
         val email = bundle?.getString("email")
         val provider = bundle?.getString("provider")
-        setup(email ?: "", provider ?: "")
+        setupOut(email ?: "", provider ?: "")
 
         // Сохранение состояния
         val prefs = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE).edit()
@@ -62,9 +62,13 @@ class HomeProfileActivity : AppCompatActivity() {
         }
     }
 
-    private fun setup(email: String, provider: String) {
+    private fun setupOut(email: String, provider: String) {
 
         title = "Профиль"
+
+        // SharedPreference
+        val preference = MyPreference(this)
+        var loginCount = preference.getLoginCount()
 
         emailTextView.text = email
         providerTextView.text = provider
@@ -78,6 +82,10 @@ class HomeProfileActivity : AppCompatActivity() {
 
             FirebaseAuth.getInstance().signOut()
             onBackPressed()
+
+            // Выключение FingerPrint
+            loginCount = 1
+            preference.setLoginCount(loginCount)
         }
     }
 }
