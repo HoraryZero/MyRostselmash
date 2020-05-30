@@ -49,7 +49,7 @@ class EditStateActivity : AppCompatActivity() {
     private val STORAGE_CODE: Int = 100
     lateinit var state: State
     lateinit var mDb: DatabaseReference
-    private val userIDFB = "IZ07eK5azYXsLMupuWWMumYCbsj1"
+    private val userIDFB = "rLRL99WV0MOKMGBR8o9hNirH3162"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -89,6 +89,11 @@ class EditStateActivity : AppCompatActivity() {
                 notify(0, builder.build())
             }
             save()
+        }
+
+        // Удаление состояния
+        deleteBtn.setOnClickListener {
+
         }
 
         saveBtnPDF.setOnClickListener {
@@ -144,7 +149,7 @@ class EditStateActivity : AppCompatActivity() {
         }
     }
 
-    fun save() {
+    private fun save() {
         state.title = stateTitle.text.toString()
         state.content = stateContent.text.toString()
 
@@ -157,7 +162,7 @@ class EditStateActivity : AppCompatActivity() {
         mDb.updateChildren(childUpdates).addOnCompleteListener { onSaveComplete() }
     }
 
-    fun onSaveComplete() {
+    private fun onSaveComplete() {
         Toast.makeText(this, "Сохранено", Toast.LENGTH_SHORT).show()
         finish()
     }
@@ -176,7 +181,6 @@ class EditStateActivity : AppCompatActivity() {
             val notificationManager: NotificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
             notificationManager.createNotificationChannel(channel)
         }
-
     }
 
     private fun checkConnect() : Boolean {

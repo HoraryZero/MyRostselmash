@@ -19,6 +19,7 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
+        <activity android:name=".profiles.AdminProfileActivity" />
         <activity android:name=".activities.EditStateActivity" />
         <activity android:name=".activities.ShowStateActivity" />
         <activity android:name=".AboutApp" />
@@ -27,10 +28,9 @@
         <activity android:name=".charts.RadarChartActivity" />
         <activity android:name=".charts.PieChartActivity" />
         <activity android:name=".charts.BarChartActivity" />
-        <activity android:name=".HomeProfileActivity" />
-        <activity android:name=".ProfileActivity" />
+        <activity android:name=".profiles.HomeProfileActivity" />
+        <activity android:name=".profiles.ProfileActivity" />
         <activity android:name=".NewsActivity" />
-
         <activity
             android:name=".finger.FingerActivity"
             android:theme="@style/SplashTheme">
@@ -40,12 +40,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

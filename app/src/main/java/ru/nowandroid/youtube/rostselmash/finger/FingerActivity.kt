@@ -10,7 +10,7 @@ import androidx.biometric.BiometricPrompt
 import androidx.core.content.ContextCompat
 import kotlinx.android.synthetic.main.activity_finger.*
 import ru.nowandroid.youtube.rostselmash.MainActivity
-import ru.nowandroid.youtube.rostselmash.MyPreference
+import ru.nowandroid.youtube.rostselmash.preference.MyPreference
 import ru.nowandroid.youtube.rostselmash.R
 
 class FingerActivity : AppCompatActivity() {
@@ -31,7 +31,7 @@ class FingerActivity : AppCompatActivity() {
 
         // SharedPreference
         val preference = MyPreference(this)
-        var loginCount = preference.getLoginCount()
+        val loginCount = preference.getLoginCount()
 
         if (loginCount == 2) {setContentView(R.layout.activity_finger)
 
@@ -58,7 +58,6 @@ class FingerActivity : AppCompatActivity() {
                         }
                     })
 
-
             promptInfo = BiometricPrompt.PromptInfo.Builder()
                     .setTitle("Биометрическая авторизация в приложении")
                     .setDescription("Используйте биометрический датчик для авторизации")
@@ -78,7 +77,6 @@ class FingerActivity : AppCompatActivity() {
         Toast.makeText(applicationContext,message, Toast.LENGTH_SHORT).show()
     }
 
-    // Need opened MainActivity (need Fix Bag - Navigation Menu)
     private fun goToHomeActivity(){
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)

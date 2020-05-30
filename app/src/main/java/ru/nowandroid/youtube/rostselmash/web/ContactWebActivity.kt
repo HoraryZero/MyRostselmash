@@ -1,17 +1,21 @@
 package ru.nowandroid.youtube.rostselmash.web
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-import ru.nowandroid.youtube.rostselmash.R
 import android.annotation.SuppressLint
 import android.app.Service
+import android.content.Intent
 import android.graphics.Bitmap
 import android.net.ConnectivityManager
 import android.net.NetworkInfo
-import android.webkit.*
+import android.net.Uri
+import android.os.Bundle
+import android.webkit.WebChromeClient
+import android.webkit.WebResourceRequest
+import android.webkit.WebView
+import android.webkit.WebViewClient
 import android.widget.Toast
-import kotlinx.android.synthetic.main.activity_contacts_web.swipeRefresh
-import kotlinx.android.synthetic.main.activity_contacts_web.webView
+import androidx.appcompat.app.AppCompatActivity
+import kotlinx.android.synthetic.main.activity_contacts_web.*
+import ru.nowandroid.youtube.rostselmash.R
 
 class ContactWebActivity : AppCompatActivity() {
 
@@ -32,24 +36,19 @@ class ContactWebActivity : AppCompatActivity() {
 
         // Проверка на наличие соеднинения
         if (checkConnect()) {
-
             Toast.makeText(context, toastConnectedInfo, duration)
         } else {
-
             Toast.makeText(context, toastDisconnectedInfo, duration).show()
             this.finish()
         }
 
         // Refresh
-
         swipeRefresh.setOnRefreshListener {
             webView.reload()
         }
 
         // WebView
-
         webView.webChromeClient = object : WebChromeClient() {
-
         }
 
         webView.webViewClient = object : WebViewClient() {
@@ -77,6 +76,12 @@ class ContactWebActivity : AppCompatActivity() {
 
         webView.loadUrl(BASE_URL)
 
+        button8.setOnClickListener {
+            val gmmIntentUri = Uri.parse("geo:0,0?q=Главная проходная ООО КЗ Ростсельмаш")
+            val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
+            mapIntent.setPackage("com.google.android.apps.maps")
+            startActivity(mapIntent)
+        }
     }
 
     override fun onBackPressed() {

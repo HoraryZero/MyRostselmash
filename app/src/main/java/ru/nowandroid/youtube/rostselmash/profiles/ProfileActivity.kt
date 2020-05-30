@@ -1,5 +1,6 @@
-package ru.nowandroid.youtube.rostselmash
+package ru.nowandroid.youtube.rostselmash.profiles
 
+import android.annotation.SuppressLint
 import android.app.Service
 import android.content.Context
 import android.content.Intent
@@ -16,6 +17,7 @@ import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import kotlinx.android.synthetic.main.activity_profile.*
+import ru.nowandroid.youtube.rostselmash.R
 
 class ProfileActivity : AppCompatActivity() {
 
@@ -29,6 +31,7 @@ class ProfileActivity : AppCompatActivity() {
     private var toastDisconnectedInfo = "Отсутствует соединение с интернетом"
     private val duration = Toast.LENGTH_SHORT
 
+    @SuppressLint("ShowToast")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)

@@ -16,6 +16,7 @@ import com.google.android.material.navigation.NavigationView
 import ru.nowandroid.youtube.rostselmash.charts.BarChartActivity
 import ru.nowandroid.youtube.rostselmash.charts.PieChartActivity
 import ru.nowandroid.youtube.rostselmash.charts.RadarChartActivity
+import ru.nowandroid.youtube.rostselmash.profiles.ProfileActivity
 import ru.nowandroid.youtube.rostselmash.web.ContactWebActivity
 import ru.nowandroid.youtube.rostselmash.web.ProductWebActivity
 

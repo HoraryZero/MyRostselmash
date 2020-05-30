@@ -24,4 +24,5 @@
     <string name="btn_use_biometric">Использовать</string>
     <string name="save_state1">com.dev.planet.biometric.PREFERENCE_FILE_KEY</string>
     <string name="rebConfig">Сбросить настройки</string>
+    <string name="maps_way">Проложить маршрут</string>
 </resources>
