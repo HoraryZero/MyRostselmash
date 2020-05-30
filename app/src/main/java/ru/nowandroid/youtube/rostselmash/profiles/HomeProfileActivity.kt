@@ -8,7 +8,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_home_profile.*
-import kotlinx.android.synthetic.main.activity_profile.*
 import ru.nowandroid.youtube.rostselmash.preference.MyPreference
 import ru.nowandroid.youtube.rostselmash.R
 import ru.nowandroid.youtube.rostselmash.activities.ShowStateActivity
@@ -138,7 +137,7 @@ class HomeProfileActivity : AppCompatActivity() {
             loginCountAdmin = 1
             preferenceAdmin.setLoginCountAdmin(loginCountAdmin)
 
-            Toast.makeText(this, "Отпечаток пальцаи и настройки доступа сброшены, войдите в учётную запись для повторной настройки",Toast.LENGTH_LONG).show()
+            Toast.makeText(this, "Отпечаток пальца и и настройки доступа сброшены, войдите в учётную запись для повторной настройки",Toast.LENGTH_LONG).show()
         }
     }
 }

@@ -1,6 +1,7 @@
 package ru.nowandroid.youtube.rostselmash.activities
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.Service
@@ -11,8 +12,10 @@ import android.net.NetworkInfo
 import android.os.Build
 import android.os.Bundle
 import android.os.Environment
+import android.view.View
 import android.widget.RemoteViews
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
@@ -24,16 +27,21 @@ import com.itextpdf.text.pdf.PdfWriter
 import kotlinx.android.synthetic.main.activity_edit_state.*
 import ru.nowandroid.youtube.rostselmash.R
 import ru.nowandroid.youtube.rostselmash.models.State
+import ru.nowandroid.youtube.rostselmash.preference.MyPreference
 import java.io.FileOutputStream
 import java.text.SimpleDateFormat
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 import java.util.*
 import kotlin.collections.HashMap
 
 
 class EditStateActivity : AppCompatActivity() {
 
+    // Канал Push-уведомлений
     private var CHANNEL_ID = "MY_ID"
 
+    // Объект ветки Firebase
     companion object {
         val EXTRA_NOTE = "state"
     }
@@ -46,24 +54,33 @@ class EditStateActivity : AppCompatActivity() {
     private var toastDisconnectedInfo = "Отсутствует соединение с интернетом"
     private val duration = Toast.LENGTH_SHORT
 
+    // Данные для работы с RealTime Database Firebase
     private val STORAGE_CODE: Int = 100
     lateinit var state: State
     lateinit var mDb: DatabaseReference
     private val userIDFB = "rLRL99WV0MOKMGBR8o9hNirH3162"
 
+    @RequiresApi(Build.VERSION_CODES.O)
+    @SuppressLint("ShowToast", "SimpleDateFormat")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_state)
 
         // Проверка на наличие соеднинения
         if (checkConnect()) {
-
             Toast.makeText(context, toastConnectedInfo, duration)
         } else {
-
             Toast.makeText(context, toastDisconnectedInfo, duration).show()
             this.finish()
         }
+
+        // SharedPreference - Права
+        val preferenceAdmin = MyPreference(this)
+        val loginCountAdmin = preferenceAdmin.getLoginCountAdmin()
+
+        // SharedPreference - Данные авторизованного пользователя
+        val prefs = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE)
+        val email = prefs.getString("email", null)
 
         if (!intent.hasExtra(EXTRA_NOTE)) finish()
 
@@ -71,12 +88,34 @@ class EditStateActivity : AppCompatActivity() {
         stateTitle.text?.append(state.title)
         stateContent.text?.append(state.content)
 
+        // DataBase
         mDb = FirebaseDatabase.getInstance().reference
+
+        // Выдача времени с датой ($formatted)
+        val current = LocalDateTime.now()
+        val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")
+        val formatted = current.format(formatter)
+
+        // Предоставление доступа к элементам управления
+        when {
+            loginCountAdmin == 2 -> {
+                saveBtn.visibility = View.VISIBLE
+            }
+            email == "rnd.programmer.mike@gmail.com" -> {
+                saveBtn.visibility = View.VISIBLE
+            }
+            loginCountAdmin == 1 -> {
+                saveBtn.visibility = View.INVISIBLE
+            }
+            else -> {
+                saveBtn.visibility = View.INVISIBLE
+            }
+        }
 
         // Вызов Push-уведомления
         CreateNotificationChannel()
         val notificationLayout = RemoteViews(packageName, R.layout.custom_notification)
-        var builder = NotificationCompat.Builder(this, CHANNEL_ID)
+        val builder = NotificationCompat.Builder(this, CHANNEL_ID)
                 .setContentTitle("YouTitle")
                 .setSmallIcon(R.drawable.ic_notifications)
                 .setStyle(NotificationCompat.DecoratedCustomViewStyle())
@@ -89,11 +128,6 @@ class EditStateActivity : AppCompatActivity() {
                 notify(0, builder.build())
             }
             save()
-        }
-
-        // Удаление состояния
-        deleteBtn.setOnClickListener {
-
         }
 
         saveBtnPDF.setOnClickListener {
@@ -169,9 +203,9 @@ class EditStateActivity : AppCompatActivity() {
 
     // Функция выдающая Push-уведомления
     private fun CreateNotificationChannel() {
-
+        //
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-
+            //
             val name = "App Notification"
             val descriptionText = "This is my discription nofificate"
             val importnace: Int = NotificationManager.IMPORTANCE_DEFAULT
