@@ -13,6 +13,7 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Environment
 import android.view.View
+import android.widget.AdapterView
 import android.widget.RemoteViews
 import android.widget.Toast
 import androidx.annotation.RequiresApi
@@ -109,6 +110,26 @@ class EditStateActivity : AppCompatActivity() {
             }
             else -> {
                 saveBtn.visibility = View.INVISIBLE
+            }
+        }
+
+        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+
+                state = intent.getSerializableExtra(EXTRA_NOTE) as State
+                stateTitle.text?.append(state.title)
+            }
+
+            override fun onItemSelected(adapterView: AdapterView<*>?, view: View?, position: Int, id: Long) {
+
+                val nameItem = adapterView?.getItemAtPosition(position).toString()
+                val inputEditTextBox : String = "$nameItem - $formatted"
+
+                readSpinnerBtn.setOnClickListener {
+                    state = intent.getSerializableExtra(EXTRA_NOTE) as State
+                    stateTitle.text?.clear()
+                    stateTitle.text?.append(inputEditTextBox)
+                }
             }
         }
 

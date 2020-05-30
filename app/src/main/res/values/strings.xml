@@ -27,6 +27,7 @@
     <string name="maps_way">Проложить маршрут</string>
     // Участки производства
     <string-array name="nameProduction">
+        <item>""</item>
         <item>Обработка</item>
         <item>Покраска</item>
         <item>Сборка</item>
