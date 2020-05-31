@@ -17,6 +17,7 @@ import android.widget.AdapterView
 import android.widget.RemoteViews
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
@@ -101,15 +102,19 @@ class EditStateActivity : AppCompatActivity() {
         when {
             loginCountAdmin == 2 -> {
                 saveBtn.visibility = View.VISIBLE
+                readSpinnerBtn.visibility = View.VISIBLE
             }
             email == "rnd.programmer.mike@gmail.com" -> {
                 saveBtn.visibility = View.VISIBLE
+                readSpinnerBtn.visibility = View.VISIBLE
             }
             loginCountAdmin == 1 -> {
                 saveBtn.visibility = View.INVISIBLE
+                readSpinnerBtn.visibility = View.INVISIBLE
             }
             else -> {
                 saveBtn.visibility = View.INVISIBLE
+                readSpinnerBtn.visibility = View.INVISIBLE
             }
         }
 
@@ -129,6 +134,8 @@ class EditStateActivity : AppCompatActivity() {
                     state = intent.getSerializableExtra(EXTRA_NOTE) as State
                     stateTitle.text?.clear()
                     stateTitle.text?.append(inputEditTextBox)
+
+                    showAlert()
                 }
             }
         }
@@ -205,16 +212,27 @@ class EditStateActivity : AppCompatActivity() {
     }
 
     private fun save() {
-        state.title = stateTitle.text.toString()
-        state.content = stateContent.text.toString()
 
-        val uid = userIDFB
-        val path = "users/$uid/state"
-        val key = if (state.id == "") mDb.child(path).push().key else state.id
-        val childUpdates: MutableMap<String, Any> = HashMap()
+        //Need fix
+        if (stateTitle.text != null && stateContent.text != null) {
+            //
+            state.title = stateTitle.text.toString()
+            state.content = stateContent.text.toString()
 
-        childUpdates["$path/$key"] = state.toMap()
-        mDb.updateChildren(childUpdates).addOnCompleteListener { onSaveComplete() }
+            val uid = userIDFB
+            val path = "users/$uid/state"
+            val key = if (state.id == "") mDb.child(path).push().key else state.id
+            val childUpdates: MutableMap<String, Any> = HashMap()
+
+            childUpdates["$path/$key"] = state.toMap()
+            mDb.updateChildren(childUpdates).addOnCompleteListener { onSaveComplete() }
+        }
+        else if (stateTitle.text == null || stateContent.text == null) {
+            Toast.makeText(this, "Не все поля заполнены, повторите ввод",Toast.LENGTH_SHORT).show()
+        }
+        else {
+            Toast.makeText(this, "Не все поля заполнены, повторите ввод",Toast.LENGTH_SHORT).show()
+        }
     }
 
     private fun onSaveComplete() {
@@ -236,6 +254,17 @@ class EditStateActivity : AppCompatActivity() {
             val notificationManager: NotificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
             notificationManager.createNotificationChannel(channel)
         }
+    }
+
+    // Предупреждение
+    private fun showAlert() {
+
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Ошибка")
+        builder.setMessage("Вы не заполнили все поля")
+        builder.setPositiveButton("Продолжить", null)
+        val dialog: AlertDialog = builder.create()
+        dialog.show()
     }
 
     private fun checkConnect() : Boolean {

@@ -57,11 +57,6 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1" />
 
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
             <Button
                 android:id="@+id/logOutButton"
                 android:layout_width="wrap_content"
@@ -151,16 +146,50 @@
 
         </LinearLayout>
 
-        <Button
-            android:id="@+id/adminOutBtn"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Выход администратора" />
+            android:layout_height="43dp"
+            android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/adminRights"
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/adminRights"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Настройки доступа" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Настройки доступа" />
+            android:layout_height="43dp"
+            android:orientation="horizontal">
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/adminOutBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Выход администратора" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+    </LinearLayout>
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
