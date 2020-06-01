@@ -51,6 +51,8 @@ class ShowStateActivity : AppCompatActivity() {
         addStateFAB.setOnClickListener { addNote() }
         mDb = FirebaseDatabase.getInstance().reference
 
+        title = "Состояние производства"
+
         loadNotes()
     }
 

@@ -86,6 +86,8 @@ class EditStateActivity : AppCompatActivity() {
 
         if (!intent.hasExtra(EXTRA_NOTE)) finish()
 
+        title = "Редактирование состояния"
+
         state = intent.getSerializableExtra(EXTRA_NOTE) as State
         stateTitle.text?.append(state.title)
         stateContent.text?.append(state.content)
@@ -212,8 +214,6 @@ class EditStateActivity : AppCompatActivity() {
     }
 
     private fun save() {
-
-        //Need fix
         if (stateTitle.text != null && stateContent.text != null) {
             //
             state.title = stateTitle.text.toString()

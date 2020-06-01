@@ -42,6 +42,8 @@ class ContactWebActivity : AppCompatActivity() {
             this.finish()
         }
 
+        title = "Контактная информация"
+
         // Refresh
         swipeRefresh.setOnRefreshListener {
             webView.reload()

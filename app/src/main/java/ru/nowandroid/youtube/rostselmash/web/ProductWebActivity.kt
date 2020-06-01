@@ -39,6 +39,8 @@ class ProductWebActivity : AppCompatActivity() {
             this.finish()
         }
 
+        title = "Продукция"
+
         // Refresh
         swipeRefresh.setOnRefreshListener {
             webView.reload()
