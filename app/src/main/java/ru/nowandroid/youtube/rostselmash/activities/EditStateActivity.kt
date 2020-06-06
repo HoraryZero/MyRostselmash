@@ -24,7 +24,9 @@ import androidx.core.app.NotificationManagerCompat
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.itextpdf.text.Document
+import com.itextpdf.text.Font
 import com.itextpdf.text.Paragraph
+import com.itextpdf.text.pdf.BaseFont
 import com.itextpdf.text.pdf.PdfWriter
 import kotlinx.android.synthetic.main.activity_edit_state.*
 import ru.nowandroid.youtube.rostselmash.R
@@ -47,6 +49,11 @@ class EditStateActivity : AppCompatActivity() {
     companion object {
         val EXTRA_NOTE = "state"
     }
+
+    // Русские шрифты PDF
+    private val FONT = "/assets/arial.ttf"
+    private var bf: BaseFont = BaseFont.createFont(FONT, BaseFont.IDENTITY_H, BaseFont.EMBEDDED)
+    private var font: Font = Font(bf, 30f, Font.NORMAL)
 
     // Проверка соединения
     private var context = this
@@ -136,8 +143,6 @@ class EditStateActivity : AppCompatActivity() {
                     state = intent.getSerializableExtra(EXTRA_NOTE) as State
                     stateTitle.text?.clear()
                     stateTitle.text?.append(inputEditTextBox)
-
-                    showAlert()
                 }
             }
         }
@@ -191,7 +196,7 @@ class EditStateActivity : AppCompatActivity() {
             val mText = stateContent.text.toString()
 
             mDoc.addAuthor("Ростсельмаш")
-            mDoc.add(Paragraph(mText))
+            mDoc.add(Paragraph(mText, font))
             mDoc.close()
             Toast.makeText(this, "$mFileName.pdf\nis saved to\n$mFilePath",Toast.LENGTH_SHORT).show()
         }
