@@ -137,7 +137,7 @@ class HomeProfileActivity : AppCompatActivity() {
             loginCountAdmin = 1
             preferenceAdmin.setLoginCountAdmin(loginCountAdmin)
 
-            Toast.makeText(this, "Отпечаток пальца и и настройки доступа сброшены, войдите в учётную запись для повторной настройки",Toast.LENGTH_LONG).show()
+            Toast.makeText(this, "Отпечаток пальца и настройки доступа сброшены, войдите в учётную запись для повторной настройки",Toast.LENGTH_LONG).show()
         }
     }
 }

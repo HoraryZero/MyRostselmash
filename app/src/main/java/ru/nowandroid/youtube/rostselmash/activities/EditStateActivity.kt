@@ -156,13 +156,19 @@ class EditStateActivity : AppCompatActivity() {
                 .setStyle(NotificationCompat.DecoratedCustomViewStyle())
                 .setCustomContentView(notificationLayout)
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+
         // Сохранение записи и вызов Push-уведомления
         saveBtn.setOnClickListener {
            //
-            with(NotificationManagerCompat.from(this)) {
-                notify(0, builder.build())
+            if (stateTitle.text.toString().trim().isNotEmpty() && stateContent.text.toString().trim().isNotEmpty()) {
+                with(NotificationManagerCompat.from(this)) {
+                    notify(0, builder.build())
+                }
+                save()
             }
-            save()
+            else {
+                showAlert()
+            }
         }
 
         saveBtnPDF.setOnClickListener {
@@ -219,25 +225,17 @@ class EditStateActivity : AppCompatActivity() {
     }
 
     private fun save() {
-        if (stateTitle.text != null && stateContent.text != null) {
-            //
-            state.title = stateTitle.text.toString()
-            state.content = stateContent.text.toString()
+        //
+        state.title = stateTitle.text.toString()
+        state.content = stateContent.text.toString()
 
-            val uid = userIDFB
-            val path = "users/$uid/state"
-            val key = if (state.id == "") mDb.child(path).push().key else state.id
-            val childUpdates: MutableMap<String, Any> = HashMap()
+        val uid = userIDFB
+        val path = "users/$uid/state"
+        val key = if (state.id == "") mDb.child(path).push().key else state.id
+        val childUpdates: MutableMap<String, Any> = HashMap()
 
-            childUpdates["$path/$key"] = state.toMap()
-            mDb.updateChildren(childUpdates).addOnCompleteListener { onSaveComplete() }
-        }
-        else if (stateTitle.text == null || stateContent.text == null) {
-            Toast.makeText(this, "Не все поля заполнены, повторите ввод",Toast.LENGTH_SHORT).show()
-        }
-        else {
-            Toast.makeText(this, "Не все поля заполнены, повторите ввод",Toast.LENGTH_SHORT).show()
-        }
+        childUpdates["$path/$key"] = state.toMap()
+        mDb.updateChildren(childUpdates).addOnCompleteListener { onSaveComplete() }
     }
 
     private fun onSaveComplete() {
@@ -263,7 +261,6 @@ class EditStateActivity : AppCompatActivity() {
 
     // Предупреждение
     private fun showAlert() {
-
         val builder = AlertDialog.Builder(this)
         builder.setTitle("Ошибка")
         builder.setMessage("Вы не заполнили все поля")
