@@ -19,7 +19,7 @@ import ru.nowandroid.youtube.rostselmash.R
 
 class ContactWebActivity : AppCompatActivity() {
 
-    private val BASE_URL = "https://rostselmash.com/company/contact/"
+    private val BASE_URL = "https://rostselmash.com/contacts/"
     // Проверка соединения
     private var context = this
     private var connectivity: ConnectivityManager? = null
