@@ -16,7 +16,7 @@ import java.io.IOException
 
 class ListNewsFragment : androidx.fragment.app.Fragment() {
 
-    private val url = "https://rostselmash.com/company/press/news/"
+    private val url = "https://rostselmash.com/media/news/"
     private val listNews = mutableListOf<News>()
     private lateinit var adapter: DataAdapter
 
@@ -51,23 +51,23 @@ class ListNewsFragment : androidx.fragment.app.Fragment() {
     private fun getData() {
         try {
             val document = Jsoup.connect(url).get()
-            val elements = document.select("li[class=b-action-list__item]")
+            val elements = document.select("div[class=card-news__inner]")
 
             for (i in 0 until elements.size) {
-                val title = elements.select("h3[class=b-action-list__title]")
-                    .select("a")
+                val title = elements.select("div[class=card-news__text]")
+                    .select("h4[class=card-news__title]")
                     .eq(i)
                     .text()
 
                 val description =
-                    elements.select("div[class=b-action-list__description]")
-                        .select("p[class=b-action-list__text]")
+                    elements.select("div[class=card-news__text]")
+                        .select("p[class=card-news__des]")
                         .eq(i)
                         .text()
 
                 val linkImage =
                     document.baseUri() +
-                            elements.select("li[class=b-action-list__item]").select("a")
+                            elements.select("div[class=card-news__image-wrapper]")
                                 .select("img")
                                 .eq(i)
                                 .attr("src")
